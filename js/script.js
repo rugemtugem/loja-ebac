@@ -124,27 +124,30 @@ $(document).ready(function() {
     });
 });
 
-//avaScript Personalizado para o envio do formulário
-    document.getElementById('formulario-contato').addEventListener('submit', function (event) {
-        event.preventDefault(); // Impede o envio padrão do formulário
+$(document).ready(function() {
+    // Verifica se o formulário existe antes de adicionar o evento
+    if ($('#formulario-contato').length) {
+        $('#formulario-contato').on('submit', function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
 
-        // Captura os valores dos campos
-        const nome = document.getElementById('nome').value;
-        const email = document.getElementById('email').value;
-        const mensagem = document.getElementById('mensagem').value;
+            // Captura os valores dos campos
+            const nome = $('#nome').val();
+            const email = $('#email').val();
+            const mensagem = $('#mensagem').val();
 
-        // Simula o envio do formulário (substitua por sua lógica de envio real)
-        setTimeout(() => {
-            // Exibe uma mensagem de sucesso usando SweetAlert2
-            Swal.fire({
-                icon: 'success',
-                title: 'Mensagem enviada!',
-                text: `Obrigado, ${nome}! Sua mensagem foi enviada com sucesso.`,
-                confirmButtonText: 'Fechar'
-            });
+            // Simula o envio do formulário (substitua por sua lógica de envio real)
+            setTimeout(() => {
+                // Exibe uma mensagem de sucesso usando SweetAlert2
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Mensagem enviada!',
+                    html: `Obrigado, ${nome}!<br><br>Sua mensagem foi enviada com sucesso.`,
+                    confirmButtonText: 'Fechar'
+                });
 
-            // Limpa o formulário após o envio
-            document.getElementById('formulario-contato').reset();
-        }, 1000);
-    });
-        
+                // Limpa o formulário após o envio
+                $('#formulario-contato')[0].reset();
+            }, 1000);
+        });
+    }
+});

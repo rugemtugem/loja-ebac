@@ -77,17 +77,7 @@ $(document).ready(function() {
         const quantity = parseInt($(`.quantity-input[data-id="${id}"]`).val());
         addTocarrinho(id, quantity);
 
-        // Altera o ícone para bag-check ao adicionar ao carrinho
         $(this).find('i').removeClass('bi-bag').addClass('bi-bag-check');
-    });
-
-    $('#carrinho-items').on('click', '.remove-from-carrinho', function() {
-        const id = $(this).data('id');
-        const index = carrinho.findIndex(item => item.id === id);
-        if (index !== -1) {
-            carrinho.splice(index, 1);
-        }
-        updatecarrinho();
     });
 
     $('#clear-carrinho').click(function() {
@@ -97,14 +87,64 @@ $(document).ready(function() {
         $('.add-to-carrinho i').removeClass('bi-bag-check').addClass('bi-bag');
     });
 
-    $('#carrinho-items').on('click', '.remove-from-carrinho', function() {
-        const id = $(this).data('id');
-        const index = carrinho.findIndex(item => item.id === id);
-        if (index !== -1) {
-            carrinho.splice(index, 1);
+    $('#checkout-btn').click(function() {
+        if (carrinho.length === 0) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Carrinho vazio!',
+                text: 'Adicione produtos antes de finalizar a compra.',
+            });
+            return;
         }
+
+        let listaProdutos = '';
+        let total = 0;
+
+        carrinho.forEach(item => {
+            listaProdutos += `<b>${item.nome}</b> - R$${(item.preco * item.quantity).toFixed(2).replace('.', ',')} (x${item.quantity})<br>`;
+            total += item.preco * item.quantity;
+        });
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Pedido realizado com sucesso!',
+            html: `
+                <p>Seu pedido será entregue em breve.</p>
+                <h4>Resumo da Compra:</h4>
+                <p>${listaProdutos}</p>
+                <h3>Total: R$${total.toFixed(2).replace('.', ',')}</h3>
+            `,
+            confirmButtonText: 'OK'
+        });
+
+        carrinho.length = 0;
         updatecarrinho();
 
         $('.add-to-carrinho i').removeClass('bi-bag-check').addClass('bi-bag');
     });
 });
+
+//avaScript Personalizado para o envio do formulário
+    document.getElementById('formulario-contato').addEventListener('submit', function (event) {
+        event.preventDefault(); // Impede o envio padrão do formulário
+
+        // Captura os valores dos campos
+        const nome = document.getElementById('nome').value;
+        const email = document.getElementById('email').value;
+        const mensagem = document.getElementById('mensagem').value;
+
+        // Simula o envio do formulário (substitua por sua lógica de envio real)
+        setTimeout(() => {
+            // Exibe uma mensagem de sucesso usando SweetAlert2
+            Swal.fire({
+                icon: 'success',
+                title: 'Mensagem enviada!',
+                text: `Obrigado, ${nome}! Sua mensagem foi enviada com sucesso.`,
+                confirmButtonText: 'Fechar'
+            });
+
+            // Limpa o formulário após o envio
+            document.getElementById('formulario-contato').reset();
+        }, 1000);
+    });
+        

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta nome="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja com JS para curso Ebac - Contato</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css">    <!-- SweetAlert2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+ </head>
+<body>
+
+<!-- Botão para abrir o menu -->
+<button id="menu-button">MENU</button>
+
+<!-- Menu Lateral -->
+<nav id="menu">
+    <h4 class="text-white my-5">Navegação</h4>
+    <a href="index.html">HOME</a>
+    <a href="#sobre">SOBRE</a>
+    <a href="contato.html">CONTATO</a>
+</nav>
+
+<!-- Envolve todo o conteúdo principal em um div com ID "content" -->
+<div id="content">
+    <header class="p-3 mb-3 border-bottom">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+                <img src="imagens/logo.png" alt="Rugemtugem" width="80">
+            </a>
+    
+            <ul class="ms-5 nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="#" class="nav-link px-2 link-secondary">Games</a></li>
+              <li><a href="#" class="nav-link px-2 link-body-emphasis">Informática</a></li>
+              <li><a href="#" class="nav-link px-2 link-body-emphasis">Eletrônicos</a></li>
+              <li><a href="#" class="nav-link px-2 link-body-emphasis">Todos os produtos</a></li>
+            </ul>
+    
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+              <input type="search" class="form-control" placeholder="buscar produtos..." aria-label="Search">
+            </form>
+    
+            <div class="dropdown text-end">
+              <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="imagens/usuario.png" alt="mdo" width="32" height="32" class="rounded-circle">
+              </a>
+              <ul class="dropdown-menu text-small">
+                <li><a class="dropdown-item" href="#">Meu Carrinho</a></li>
+                <li><a class="dropdown-item" href="#">Pedidos</a></li>
+                <li><a class="dropdown-item" href="#">Perfil</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item text-danger" href="#">Sair</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+
+    <!-- Formulário de Contato -->
+    <div class="container mt-5">
+        <div class="row justify-content-center mx-auto">
+            <div class="row text-center">
+                <h1>Entre em Contato</h1>
+                <p>Preencha o formulário abaixo para nos enviar uma mensagem.</p> 
+            </div>   
+            <div class="col-md-6">
+                <form id="formulario-contato">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome:</label>
+                        <input type="text" class="form-control" id="nome" name="nome" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mail:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mensagem" class="form-label">Mensagem:</label>
+                        <textarea class="form-control" id="mensagem" name="mensagem" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+              <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+            <span class="mb-3 mb-md-0 text-body-secondary">© 2025 Rugemtugem</span>
+          </div>
+      
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-body-secondary link-dark" href="https://linkedin.com/in/rugemtugem"><i class="bi bi-linkedin"></i></a></li>
+            <li class="ms-3"><a class="text-body-secondary link-dark" href="https://instagram.com/rugemtugem"><i class="bi bi-instagram"></i></a></li>
+            <li class="ms-3"><a class="text-body-secondary link-dark" href="https://github.com/rugemtugem"><i class="bi bi-github"></i></a></li>
+          </ul>
+        </footer>
+    </div>
+</div> <!-- Fecha o conteúdo principal -->
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    // Inicializa o Slideout.js
+    const slideout = new Slideout({
+        panel: document.getElementById('content'), // Elemento principal da página
+        menu: document.getElementById('menu'),     // Elemento do menu lateral
+        padding: 250,                             // Largura do menu aberto
+        tolerance: 70                             // Sensibilidade ao arrastar
+    });
+
+    // Referência ao botão
+    const menuButton = document.getElementById('menu-button');
+
+    // Alterna entre "MENU" e "X"
+    function toggleMenuButtonText(isOpen) {
+        if (isOpen) {
+            menuButton.innerHTML = '<i class="bi bi-x-circle"></i>'; // Muda para ícone quando o menu está aberto
+        } else {
+            menuButton.textContent = 'MENU'; // Volta para "MENU" quando o menu está fechado
+        }
+    }
+
+    // Abre ou fecha o menu ao clicar no botão
+    menuButton.addEventListener('click', function () {
+        slideout.toggle();
+    });
+
+    // Garante que o menu seja exibido corretamente
+    slideout.on('beforeopen', function () {
+        document.getElementById('menu').style.display = 'block';
+        toggleMenuButtonText(true); // Atualiza o texto do botão para "X"
+        document.body.classList.add('slideout-open'); // Adiciona classe para desativar a barra de rolagem
+    });
+
+    slideout.on('close', function () {
+        document.getElementById('menu').style.display = 'none';
+        toggleMenuButtonText(false); // Atualiza o texto do botão para "MENU"
+        document.body.classList.remove('slideout-open'); // Remove classe para reativar a barra de rolagem
+    });
+</script>
+</body>
+</html>
